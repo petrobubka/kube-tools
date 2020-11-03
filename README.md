@@ -1,11 +1,11 @@
 # kube-tools
 
-![CI](https://github.com/stefanprodan/kube-tools/workflows/CI/badge.svg)
-[![Docker](https://img.shields.io/badge/Docker%20Hub-stefanprodan%2Fkube--tools-blue)](https://hub.docker.com/r/stefanprodan/kube-tools)
+![CI](https://github.com/grebois/kube-tools/workflows/CI/badge.svg)
+[![Docker](https://img.shields.io/badge/Docker%20Hub-grebois%2Fkube--tools-blue)](https://hub.docker.com/r/grebois/kube-tools)
 
 Github Action with Kubernetes tools:
 kubectl, kustomize, helm, kubeval, conftest, jq, yq, go.
-See the [release](https://github.com/stefanprodan/kube-tools/releases)
+See the [release](https://github.com/grebois/kube-tools)
 page for the list of available tools and versions.
 
 GitHub Workflow example:
@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Kubernetes tools
-        uses: stefanprodan/kube-tools@v1
+        uses: grebois/kube-tools@v1.5.2
         with:
           kubectl: 1.18.2
           kustomize: 3.5.5
