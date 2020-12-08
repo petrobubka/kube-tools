@@ -36,7 +36,7 @@ ENV KUBESEAL=0.12.5
 RUN echo "downloading kubeseal ${KUBESEAL}" && curl -sL https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL}/kubeseal-linux-amd64 \
     -o /usr/local/bin/kubeseal && chmod +x /usr/local/bin/kubeseal && kubeseal --version
 
-ENV KOPS=1.18.2
+ENV KOPS=1.19.0-beta.2
 RUN curl -Lo kops https://github.com/kubernetes/kops/releases/download/v${KOPS}/kops-linux-amd64 \
     && chmod +x ./kops && mv ./kops /usr/local/bin/ && kops version
 
