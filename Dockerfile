@@ -36,9 +36,17 @@ ENV KUBESEAL=0.12.5
 RUN echo "downloading kubeseal ${KUBESEAL}" && curl -sL https://github.com/bitnami-labs/sealed-secrets/releases/download/v${KUBESEAL}/kubeseal-linux-amd64 \
     -o /usr/local/bin/kubeseal && chmod +x /usr/local/bin/kubeseal && kubeseal --version
 
-ENV KOPS=1.19.0-beta.2
+ENV KOPS=1.20.1
 RUN curl -Lo kops https://github.com/kubernetes/kops/releases/download/v${KOPS}/kops-linux-amd64 \
     && chmod +x ./kops && mv ./kops /usr/local/bin/ && kops version
+
+ENV TERRAFORM=1.0.0
+RUN curl -Lo terraform.zip https://releases.hashicorp.com/terraform/${TERRAFORM}/terraform_${TERRAFORM}_linux_amd64.zip \
+    && unzip terraform.zip && chmod +x ./terraform && mv ./terraform /usr/local/bin/ && terraform version
+
+ENV TERRAGRUNT=0.29.10
+RUN curl -Lo terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${TERRAGRUNT}/terragrunt_linux_amd64\
+    && chmod +x ./terragrunt && mv ./terragrunt /usr/local/bin/
 
 RUN echo "downloading yq" && curl -sL https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 \
     -o /usr/local/bin/yq && chmod +x /usr/local/bin/yq && yq --version
